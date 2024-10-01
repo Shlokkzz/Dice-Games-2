@@ -15,6 +15,9 @@ public class GamesViewModel extends ViewModel {
     int balance;
 
     private int wager;
+    private int currRoll;
+
+    private int [] diceValues;
 
     GameType gameType;
 
@@ -23,13 +26,15 @@ public class GamesViewModel extends ViewModel {
     public GamesViewModel(){
         balance = 0;
         wager = 0;
-
+        currRoll = 0;
         gameType = GameType.NONE; // default
+        diceValues = new int[4];
         mDie = new Die6();
     }
 
     void rollWalletDie(){
         mDie.roll();
+        currRoll = mDie.value();
         if(mDie.value() == WIN_VALUE){
             balance += INCR_VALUE;
         }
@@ -70,16 +75,18 @@ public class GamesViewModel extends ViewModel {
                  winCount = 4;
                  break;
         }
-        int [] diceValues = diceValues();
+        diceValues = diceValues().clone();
         for(int i=1;i<=6;i++){
             int cnt=0;
             for(int j=0;j<4;j++){
-                if(diceValues[j] == i)cnt++;
+                if(diceValues[j] == i) cnt++;
             }
             if(cnt == winCount){
+                balance += winCount * wager;
                 return GameResult.WIN;
             }
         }
+        balance -= winCount * wager;
         return GameResult.LOSS;
     }
 
@@ -92,6 +99,12 @@ public class GamesViewModel extends ViewModel {
         }
         return diceValues;
     }
+
+    // getters
+    public int[] getDiceValues(){ return this.diceValues; }
+
+    public int getWalletDieValue(){ return currRoll; }
+
     // setters
     public void setWager(int wager){
         this.wager = wager;

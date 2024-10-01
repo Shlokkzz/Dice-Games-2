@@ -1,74 +1,141 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".GamesFragment">
-
+    tools:context=".InfoFragment">
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:gravity="center"
-        android:padding="16dp">
+        android:padding="16dp"
+        android:layout_gravity="center"
+        android:gravity="center_horizontal">
 
-        <LinearLayout
+        <!-- Title of the game -->
+        <TextView
+            android:id="@+id/txt_game_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="horizontal">
+            android:text="Chō-han Game Rules"
+            android:textStyle="bold"
+            android:textSize="24sp"
+            android:paddingBottom="16dp"
+            android:gravity="center" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_weight="1"
-                android:text="Rules of the game"
-                android:textSize="18sp"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
+        <!-- Description -->
+        <TextView
+            android:id="@+id/txt_game_description"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="16dp"
-            android:gravity="center">
+            android:text="Chō-han is a traditional dice game where 4 dice are rolled. The player bets on whether there will be 2 alike, 3 alike, or 4 alike dice. Depending on the result, the player's wager is multiplied by the respective multiplier."
+            android:textSize="16sp"
+            android:paddingBottom="24dp"
+            android:gravity="center" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="16dp"
-                android:id = "@+id/rulesText"
-                android:layout_marginTop="16dp"
-                android:layout_weight="1"
-                android:text="Rules of the game"
-                android:textSize="18sp"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
+        <!-- Section: Wager Conditions -->
+        <TextView
+            android:id="@+id/txt_wager_conditions"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="16dp"
-            android:gravity="center">
+            android:text="Wager Conditions"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:paddingBottom="12dp"
+            android:textColor="@android:color/holo_blue_dark" />
 
-            <Button
-                android:id="@+id/infoButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Info"
-                android:layout_marginEnd="8dp"/>
+        <!-- Two alike condition -->
+        <TextView
+            android:id="@+id/txt_two_alike"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="• Two Dice Alike: Multiplier = 2x"
+            android:textSize="16sp"
+            android:paddingBottom="8dp"
+            android:layout_marginLeft="16dp" />
 
-            <Button
-                android:id="@+id/backButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Back" />
-        </LinearLayout>
+        <!-- Three alike condition -->
+        <TextView
+            android:id="@+id/txt_three_alike"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="• Three Dice Alike: Multiplier = 3x"
+            android:textSize="16sp"
+            android:paddingBottom="8dp"
+            android:layout_marginLeft="16dp" />
+
+        <!-- Four alike condition -->
+        <TextView
+            android:id="@+id/txt_four_alike"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="• Four Dice Alike: Multiplier = 4x"
+            android:textSize="16sp"
+            android:paddingBottom="24dp"
+            android:layout_marginLeft="16dp" />
+
+        <!-- Section: Balance Calculation -->
+        <TextView
+            android:id="@+id/txt_balance_calculation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Balance Calculation"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:paddingBottom="12dp"
+            android:textColor="@android:color/holo_blue_dark" />
+
+        <!-- Balance calculation rule -->
+        <TextView
+            android:id="@+id/txt_balance_rule"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="• After a successful wager, the player's wager is multiplied by the condition's multiplier and added to their balance."
+            android:textSize="16sp"
+            android:paddingBottom="8dp"
+            android:layout_marginLeft="16dp" />
+
+        <!-- Formula for balance calculation -->
+        <TextView
+            android:id="@+id/txt_balance_formula"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="• Formula: balance = balance + (wager * multiplier)"
+            android:textSize="16sp"
+            android:paddingBottom="24dp"
+            android:layout_marginLeft="16dp" />
+
+        <!-- Section: Losing Condition -->
+        <TextView
+            android:id="@+id/txt_losing_condition"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Losing Condition"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:paddingBottom="12dp"
+            android:textColor="@android:color/holo_blue_dark" />
+
+        <!-- Losing condition rule -->
+        <TextView
+            android:id="@+id/txt_losing_rule"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="• If no dice meet the chosen condition, the player loses their wager."
+            android:textSize="16sp"
+            android:paddingBottom="16dp"
+            android:layout_marginLeft="16dp" />
+        <TextView
+            android:id="@+id/txt_balance_formula2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="• Formula: balance = balance - (wager * multiplier)"
+            android:textSize="16sp"
+            android:paddingBottom="24dp"
+            android:layout_marginLeft="16dp" />
 
     </LinearLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
