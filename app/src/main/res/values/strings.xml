@@ -4,4 +4,9 @@
     <string name="coins">Coins</string>
     <string name="to_games">To Games</string>
     <string name="congrats">Congratulations!</string>
+    <string name="two_alike_extra">Two Alike</string>
+    <string name="three_alike_extra">Three Alike</string>
+    <string name="four_alike_extra">Four Alike</string>
+
+
 </resources>
