@@ -1,5 +1,7 @@
 package androidsamples.java.dicegames;
 
+import android.util.Log;
+
 import androidx.lifecycle.ViewModel;
 
 /**
@@ -19,6 +21,11 @@ public class GamesViewModel extends ViewModel {
 
     private int [] diceValues;
 
+    private Die die1;
+    private Die die2;
+    private Die die3;
+    private Die die4;
+
     GameType gameType;
 
     private Die mDie;
@@ -30,6 +37,10 @@ public class GamesViewModel extends ViewModel {
         gameType = GameType.NONE; // default
         diceValues = new int[4];
         mDie = new Die6();
+        die1 = new Die6();
+        die2 = new Die6();
+        die3 = new Die6();
+        die4 = new Die6();
     }
 
     void rollWalletDie(){
@@ -92,11 +103,19 @@ public class GamesViewModel extends ViewModel {
 
     public int[] diceValues(){
         int [] diceValues = new int[4];
-        Die tempDie = new Die6();
-        for(int i=0;i<4;i++){
-            tempDie.roll();
-            diceValues[i] = tempDie.value();
-        }
+
+        die1.roll();
+        diceValues[0]=die1.value();
+
+        die2.roll();
+        diceValues[1]=die2.value();
+
+        die3.roll();
+        diceValues[2]=die3.value();
+
+        die4.roll();
+        diceValues[3]=die4.value();
+
         return diceValues;
     }
 
@@ -115,5 +134,12 @@ public class GamesViewModel extends ViewModel {
     public void setGameType(GameType gameType){
         this.gameType = gameType;
     }
-
+    public void setDie(Die die){this.mDie = die;}
+    public void setCurrRoll(int roll){this.currRoll = roll; }
+    public void setDies(Die die1,Die die2, Die die3, Die die4){
+        this.die1 = die1;
+        this.die2 = die2;
+        this.die3 = die3;
+        this.die4 = die4;
+    }
 }

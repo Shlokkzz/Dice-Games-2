@@ -60,4 +60,7 @@ dependencies {
 
     // needed for instantTaskExecutorRule
     androidTestImplementation "androidx.arch.core:core-testing:2.2.0"
+
+    testImplementation 'org.mockito:mockito-core:5.13.0'  // For JVM unit tests
+    androidTestImplementation 'org.mockito:mockito-android:5.13.0'
 }
