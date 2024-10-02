@@ -20,6 +20,7 @@ public class GamesViewModelWalletTest {
 
     @Spy
     private Die walletDie;
+
     @InjectMocks
     private GamesViewModel m = new GamesViewModel();
     private AutoCloseable closeable;
@@ -36,8 +37,9 @@ public class GamesViewModelWalletTest {
 
     @Test
     public void rolling6IncrementsBalanceBy5() {
-        int oldBalance = m.balance;
         when(walletDie.value()).thenReturn(WIN_VALUE);
+        m.setDie(walletDie);
+        int oldBalance = m.balance;
 
         m.rollWalletDie();
         assertThat(m.balance, is(oldBalance + INCR_VALUE));
@@ -45,8 +47,9 @@ public class GamesViewModelWalletTest {
 
     @Test
     public void rolling1DoesNotChangeBalance() {
-        int oldBalance = m.balance;
         when(walletDie.value()).thenReturn(1);
+        m.setDie(walletDie);
+        int oldBalance = m.balance;
 
         m.rollWalletDie();
         assertThat(m.balance, is(oldBalance));
@@ -54,8 +57,9 @@ public class GamesViewModelWalletTest {
 
     @Test
     public void rolling6MultipleTimesIncrementsBalanceCorrectly() {
-        int oldBalance = m.balance;
         when(walletDie.value()).thenReturn(WIN_VALUE);
+        m.setDie(walletDie);
+        int oldBalance = m.balance;
 
         m.rollWalletDie();
         m.rollWalletDie();
@@ -65,9 +69,9 @@ public class GamesViewModelWalletTest {
 
     @Test
     public void rolling4AndThen6IncrementsBalanceCorrectly(){
-        int oldBalance = m.balance;
-
         when(walletDie.value()).thenReturn(4);
+        m.setDie(walletDie);
+        int oldBalance = m.balance;
         m.rollWalletDie();
 
         when(walletDie.value()).thenReturn(WIN_VALUE);
@@ -79,6 +83,7 @@ public class GamesViewModelWalletTest {
     @Test
     public void rolling243DoesNotChangeBalance(){
         int oldBalance = m.balance;
+        m.setDie(walletDie);
 
         when(walletDie.value()).thenReturn(2);
         m.rollWalletDie();
