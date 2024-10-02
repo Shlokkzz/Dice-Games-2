@@ -17,7 +17,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:focusable="true">
 
             <TextView
                 android:id="@+id/coinsText2"
@@ -27,7 +28,8 @@
                 android:layout_weight="1"
                 android:padding="4dp"
                 android:text="@string/coins"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                android:focusable="false"/>
 
             <TextView
                 android:id="@+id/coin_counter"
@@ -36,7 +38,9 @@
                 android:layout_marginTop="5dp"
                 android:padding="0dp"
                 android:text="@string/zero"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                android:focusable="false"
+                android:accessibilityLiveRegion="polite"/>
         </LinearLayout>
 
         <RadioGroup
@@ -51,21 +55,24 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
-                android:text="@string/two_alike_extra" />
+                android:text="@string/two_alike_extra"
+                android:focusable="true"/>
 
             <RadioButton
                 android:id="@+id/radio3Alike"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
-                android:text="@string/three_alike_extra" />
+                android:text="@string/three_alike_extra"
+                android:focusable="true"/>
 
             <RadioButton
                 android:id="@+id/radio4Alike"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
-                android:text="@string/four_alike_extra" />
+                android:text="@string/four_alike_extra"
+                android:focusable="true"/>
         </RadioGroup>
 
         <LinearLayout
@@ -108,7 +115,8 @@
                 android:padding="16dp"
                 android:text="@string/zero"
                 android:textColor="@color/white"
-                android:textSize="48sp" />
+                android:textSize="48sp"
+                android:accessibilityLiveRegion="polite"/>
 
             <TextView
                 android:id="@+id/die2"
@@ -120,7 +128,8 @@
                 android:padding="16dp"
                 android:text="@string/zero"
                 android:textColor="@color/white"
-                android:textSize="48sp" />
+                android:textSize="48sp"
+                android:accessibilityLiveRegion="polite"/>
 
             <TextView
                 android:id="@+id/die3"
@@ -132,7 +141,8 @@
                 android:padding="16dp"
                 android:text="@string/zero"
                 android:textColor="@color/white"
-                android:textSize="48sp" />
+                android:textSize="48sp"
+                android:accessibilityLiveRegion="polite"/>
 
             <TextView
                 android:id="@+id/die4"
@@ -144,7 +154,8 @@
                 android:padding="16dp"
                 android:text="@string/zero"
                 android:textColor="@color/white"
-                android:textSize="48sp" />
+                android:textSize="48sp"
+                android:accessibilityLiveRegion="polite"/>
         </LinearLayout>
 
         <LinearLayout
