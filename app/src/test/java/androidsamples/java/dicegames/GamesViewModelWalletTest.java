@@ -51,4 +51,45 @@ public class GamesViewModelWalletTest {
         m.rollWalletDie();
         assertThat(m.balance, is(oldBalance));
     }
+
+    @Test
+    public void rolling6MultipleTimesIncrementsBalanceCorrectly() {
+        int oldBalance = m.balance;
+        when(walletDie.value()).thenReturn(WIN_VALUE);
+
+        m.rollWalletDie();
+        m.rollWalletDie();
+
+        assertThat(m.balance, is(oldBalance + 2 * INCR_VALUE));
+    }
+
+    @Test
+    public void rolling4AndThen6IncrementsBalanceCorrectly(){
+        int oldBalance = m.balance;
+
+        when(walletDie.value()).thenReturn(4);
+        m.rollWalletDie();
+
+        when(walletDie.value()).thenReturn(WIN_VALUE);
+        m.rollWalletDie();
+
+        assertThat(m.balance, is(oldBalance +  INCR_VALUE));
+    }
+
+    @Test
+    public void rolling243DoesNotChangeBalance(){
+        int oldBalance = m.balance;
+
+        when(walletDie.value()).thenReturn(2);
+        m.rollWalletDie();
+
+        when(walletDie.value()).thenReturn(4);
+        m.rollWalletDie();
+
+        when(walletDie.value()).thenReturn(3);
+        m.rollWalletDie();
+
+        assertThat(m.balance, is(oldBalance));
+    }
+
 }

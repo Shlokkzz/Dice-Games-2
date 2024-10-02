@@ -41,7 +41,7 @@ public class GamesViewModel extends ViewModel {
     }
 
     boolean isValidWager(){
-        if(wager == 0) return false;
+        if(wager <= 0) return false;
         switch (gameType){
             case TWO_ALIKE:
                 return 2 * wager <= balance;

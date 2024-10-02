@@ -38,6 +38,7 @@ This app is a suite of multiple dice games, allowing players to wager coins and 
 
 ## Testing Strategy:
 I followed a test-driven development (TDD) approach, writing test cases before implementing the actual functionality. This helped me avoid issues later in development. Test cases were implemented for both the ViewModel and the UI elements to ensure proper integration. The accessibility of the app was also tested using Espresso and TalkBack.
+The monkey tool was also used to simulate random user interactions, which helped identify and address potential crashes.
 
 ## Time Spent:
 - **Approximate hours taken:** 10 hours
@@ -46,5 +47,5 @@ I followed a test-driven development (TDD) approach, writing test cases before i
 - **Difficulty rating (1-10):** 8
 
 ## Pair Programming Rating:
-- **Rating:** 4 / 5
+- **Rating (1-5):** 4
 

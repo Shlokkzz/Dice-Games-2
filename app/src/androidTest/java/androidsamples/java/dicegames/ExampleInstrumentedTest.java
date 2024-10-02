@@ -35,4 +35,5 @@ public class ExampleInstrumentedTest {
         onView(withId(R.id.btn_die)).perform(click());
     }
 
+    // app close and then start same balance after some ops
 }

@@ -53,4 +53,43 @@ public class MockedGamePlayTest {
         m.setWager(5);
         assertThat(m.play(), is(GameResult.WIN));
     }
+
+
+    @Test
+    public void fourAlikeWinsWhenAllDiceReturn2BalanceCheck() {
+        when(m.diceValues()).thenReturn(new int[]{2, 2, 2, 2});
+
+        m.setGameType(GameType.FOUR_ALIKE);
+        m.setBalance(100);
+        m.setWager(5);
+        assertThat(m.play(), is(GameResult.WIN));
+
+        assertThat(m.balance == 100 + 5 * 4,is(true));
+    }
+
+    @Test
+    public void fourAlikeLossWhenD1DifferentBalanceCheck() {
+        when(m.diceValues()).thenReturn(new int[]{5, 3, 3, 3});
+
+        m.setGameType(GameType.FOUR_ALIKE);
+        m.setBalance(100);
+        m.setWager(5);
+        assertThat(m.play(), is(GameResult.LOSS));
+
+        assertThat(m.balance == 100 - 5 * 4,is(true));
+    }
+
+    @Test
+    public void threeAlikeLossWhenD1D3DifferentBalanceCheck() {
+        when(m.diceValues()).thenReturn(new int[]{5, 3, 6, 3});
+
+        m.setGameType(GameType.THREE_ALIKE);
+        m.setBalance(100);
+        m.setWager(5);
+        assertThat(m.play(), is(GameResult.LOSS));
+
+        assertThat(m.balance == 100 - 5 * 3,is(true));
+    }
+
+
 }

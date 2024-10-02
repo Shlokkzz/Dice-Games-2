@@ -76,4 +76,34 @@ public class GamePlayTest {
         IllegalStateException thrown = assertThrows(IllegalStateException.class, m::play);
         assertThat(thrown.getMessage(), is("Game Type not set, can't play!"));
     }
+
+
+    @Test
+    public void wager2Balance40GameType4(){
+        m.setBalance(40);
+        m.setGameType(GameType.FOUR_ALIKE);
+        m.setWager(2);
+
+        assertThat(m.isValidWager(),is(true));
+    }
+
+    @Test
+    public void wagerNegativeInvalid(){
+        m.setBalance(100);
+        m.setGameType(GameType.TWO_ALIKE);
+        m.setWager(-10);
+
+        assertThat(m.isValidWager(),is(false));
+    }
+
+    @Test
+    public void wager30Balance40GameType2(){
+        m.setBalance(40);
+        m.setGameType(GameType.TWO_ALIKE);
+        m.setWager(30);
+
+        assertThat(m.isValidWager(),is(false));
+    }
+
+
 }
